@@ -1,0 +1,35 @@
+{
+    "fases":
+    [
+        {
+            "IDFase" : "1",
+            "tempoEclosao": "1.5",
+            "range": 
+            {
+                "rangeStart": "1",
+                "rangeEnd": "37.5" 
+            },
+            "starsToComplete": "25"
+        },
+        {
+            "IDFase" : "2",
+            "tempoEclosao": "1.0",
+            "range": 
+            {
+                "rangeStart": "25", 
+                "rangeEnd": "62.5"  
+            },
+            "starsToComplete": "100"
+        },
+        {
+            "IDFase" : "3",
+            "tempoEclosao": "0.5",
+            "range": 
+            {
+                "rangeStart": "50", 
+                "rangeEnd": "100"   
+            },
+            "starsToComplete": "200"
+        }
+    ]
+}
