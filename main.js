@@ -55,7 +55,7 @@
                 cc.view.enableRetina(true);
             }
             //cc.view.setDesignResolutionSize(settings.designWidth, settings.designHeight, cc.ResolutionPolicy.SHOW_ALL);
-        
+
             if (cc.sys.isBrowser) {
                 setLoadingDisplay();
             }
@@ -67,7 +67,19 @@
                 else if (settings.orientation === 'portrait') {
                     cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
                 }
-                cc.view.enableAutoFullScreen(cc.sys.browserType !== cc.sys.BROWSER_TYPE_BAIDU);
+                // qq, wechat, baidu
+                cc.view.enableAutoFullScreen(
+                    cc.sys.browserType !== cc.sys.BROWSER_TYPE_BAIDU &&
+                    cc.sys.browserType !== cc.sys.BROWSER_TYPE_WECHAT &&
+                    cc.sys.browserType !== cc.sys.BROWSER_TYPE_MOBILE_QQ
+                );
+            }
+
+            // Limit downloading max concurrent task to 2, 
+            // more tasks simultaneously may cause performance draw back on some android system / brwosers.
+            // You can adjust the number based on your own test result, you have to set it before any loading process to take effect.
+            if (cc.sys.isBrowser && cc.sys.os === cc.sys.OS_ANDROID) {
+                cc.macro.DOWNLOAD_MAX_CONCURRENT = 2;
             }
 
             // init assets
